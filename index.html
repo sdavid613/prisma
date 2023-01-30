@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisma</title>
+    <link rel="stylesheet" href="src/tableau.css">
+    <script type="module" >
+
+    // import des fonctions js 
+    import {generateTable , filterUrl} from './src/index.js'
+
+    // Lecture du fichier json et creation de l'object request  
+    var requestURL = '/src/datas.json';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();  
+   
+    // Execution du scipt au chargement de la page 
+    request.onload = function() {
+        var person = request.response;
+        generateTable(filterUrl(person)) ; 
+    }
+
+    </script>
+</head>
+<body>
+</body>
+</html>
